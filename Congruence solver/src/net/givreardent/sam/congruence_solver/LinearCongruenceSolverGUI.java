@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class SolverGUI extends JFrame {
+public class LinearCongruenceSolverGUI extends JFrame {
 	private static final long serialVersionUID = -3627170996697955776L;
 
 	private JPanel mode1 = new JPanel();
@@ -41,7 +41,7 @@ public class SolverGUI extends JFrame {
 	private CardLayout card = new CardLayout();
 	private int currentMode = 0;
 	
-	public SolverGUI() {
+	public LinearCongruenceSolverGUI() {
 		super("Congruence solver");
 		setSize(220, 150);
 		setDefaultCloseOperation(3); // exit on close
@@ -84,7 +84,7 @@ public class SolverGUI extends JFrame {
 	
 	
 	public static void main(String[] arguments) {
-		SolverGUI frame = new SolverGUI();
+		LinearCongruenceSolverGUI frame = new LinearCongruenceSolverGUI();
 	}
 	
 	private void initializePanels() {
@@ -129,14 +129,14 @@ public class SolverGUI extends JFrame {
 					int c = Integer.parseInt(cField1.getText());
 					int m = Integer.parseInt(mField1.getText());
 					String result = LinearCongruenceSolver.solveCongruence(a, c, m);
-					JOptionPane.showMessageDialog(SolverGUI.this, result, "Solution", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(LinearCongruenceSolverGUI.this, result, "Solution", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else {
 					int a = Integer.parseInt(aField2.getText());
 					int c = Integer.parseInt(cField2.getText());
 					int m = Integer.parseInt(mField2.getText());
 					String result = LinearCongruenceSolver.solveCongruence(a, c, m);
-					JOptionPane.showMessageDialog(SolverGUI.this, result, "Solution", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(LinearCongruenceSolverGUI.this, result, "Solution", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 			
