@@ -23,7 +23,7 @@ public class SolverGUI extends JFrame {
 	
 	public SolverGUI() {
 		super("Congruence solver");
-		setSize(220, 100);
+		setSize(220, 105);
 		setDefaultCloseOperation(3); // exit on close
 		FlowLayout layout = new FlowLayout(FlowLayout.CENTER);
 		setLayout(layout);

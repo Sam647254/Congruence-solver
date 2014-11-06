@@ -17,14 +17,28 @@ public class LinearCongruenceSolver {
  
 	public static String solveCongruence(int a, int b, int m) {
 		int d = gcd(a,m);
-		if (divides(d,b))
-			for(int i = 0; i < m; i++) {
-				if ((a * i - b) % m == 0)
-					return "The solution is x ≡ " + i + " (mod " + m + ")";
+		int[] solutions;
+		String answer = "";
+		if (divides(d,b)) {
+			solutions = new int[d];
+			for(int i = 0, j = 0; i < m && j < solutions.length; i++)
+				if ((a*i-b) % m == 0) {
+					solutions[j] = i;
+					j++;
+				}
+			if (solutions.length == 1)
+				answer = "The solution is x ≡ " + solutions[0] + " (mod " + m + ")";
+			else {
+				answer = "The solutions are x ≡ ";
+				for (int i = 0; i < solutions.length-1; i++) 
+					answer += solutions[i] + ", ";
+				answer += solutions[solutions.length-1] + " (mod " + m + ")\nOr equivalently, "
+						+ solveCongruence(a / d, b / d, m / d).substring(16);
 			}
+		}
 		else
 			return "No solution.";
-		return "Error in calculation.";
+		return answer;
 	}
 	
 }
